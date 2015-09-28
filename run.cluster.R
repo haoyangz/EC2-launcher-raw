@@ -44,6 +44,10 @@ for(sp in strsplit(param,'\\s+')){
 
 ### Load the runstr
 runstr = readLines(runstrfile)
+runstr = runstr[runstr!='']
+pick = grep('#',runstr)
+if (length(pick)>0) runstr = runstr[-pick]
+runstr = paste(runstr,collapse=';')
 print('String to run:')
 print(runstr)
 
@@ -119,6 +123,10 @@ while(checks.passed < 2){
 
 istat=system(paste0('aws --region ',realm,' --output text ec2 describe-instances --instance-ids ',iname),intern=T)
 INSTANCE_NAME = strsplit(istat,'\t')[[grep('INSTANCES',istat)]][16]
+
+## Wait until all user-data are executed
+while(length(grep('done',rsystem('ls /mnt',intern=T)))==0) { Sys.sleep(5) }
+while(length(grep('done',rsystem('ls /home/ubuntu',intern=T)))==0) { Sys.sleep(5) }
 
 ## Move script and data
 print('Moving data')

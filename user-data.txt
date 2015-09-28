@@ -7,6 +7,6 @@ sudo chmod -R 777 /mnt
 sudo apt-get update
 sudo apt-get upgrade -y
 sudo apt-get -q -y install git git-core g++ build-essential libboost-all-dev cmake r-base python-pip lzop python-dev
-sudo pip install awscli numpy scipy sklearn
+sudo pip install awscli numpy
 mkdir ~/.aws
 touch /home/ubuntu/setup.done
