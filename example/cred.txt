@@ -1,0 +1,4 @@
+#test comment
+access_key:REDACTED
+secret_key:REDACTED
+rsa_key:REDACTED

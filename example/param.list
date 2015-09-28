@@ -1,0 +1,11 @@
+realm us-east-1
+price 3.0
+bucket_name zeng-recomb
+cred.file example/cred.txt
+exptname test
+postfix .recomb
+datadir example/testdata
+ami ami-763a311e
+itype g2.2xlarge
+mailaddr zeng@csail.mit.edu
+
